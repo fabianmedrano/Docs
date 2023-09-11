@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <!-- Agregar aquí los enlaces a archivos CSS y scripts JavaScript -->
+    <style>
+        /* Estilos para centrar el contenido del main */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Estilos para la galería de imágenes */
+        .gallery {
+            text-align: center;
+        }
+
+        .gallery__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery__item {
+            padding: 10px;
+        }
+
+        .gallery__item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Aquí va el encabezado y la barra de navegación -->
+    </header>
+
+    <main>
+        <!-- Galería de imágenes -->
+        <section class="gallery">
+            <h2>Galería de Imágenes</h2>
+            <div class="gallery__container">
+                <div class="gallery__item">
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                    <p>Descripción de la imagen 1</p>
+                </div>
+                <div class="gallery__item">
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                    <p>Descripción de la imagen 2</p>
+                </div>
+                <!-- Agrega más imágenes aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Aquí va el pie de página -->
+    </footer>
+</body>
+
+</html>
