@@ -17,3 +17,7 @@
 | Sum | Calcula la suma de una secuencia de valores numéricos. | Función selector. | `TResult` | `int totalAge = users.Sum(u => u.Age);` |
 | Average | Calcula el promedio de una secuencia de valores numéricos. | Función selector. | `double` o `Nullable<double>` | `double averageAge = users.Average(u => u.Age);` |
 | Min y Max | Devuelve el valor mínimo y máximo de una secuencia de valores, respectivamente. | Función selector. | `TResult` o valor predeterminado. | `int minAge = users.Min(u => u.Age);` |
+| Include (Carga ansiosa) | Carga las relaciones de un objeto en la consulta inicial para evitar consultas adicionales más tarde.  | Expresión para especificar las relaciones a cargar.  | `IIncludableQueryable<TEntity, TProperty>`  | `var user = context.Users.Include(u => u.UserRoles).FirstOrDefault(u => u.Id == userId);` |
+| ThenInclude (Carga ansiosa) | Se utiliza después de `Include` para cargar relaciones adicionales.  | Expresión para especificar las relaciones adicionales a cargar.  | `IIncludableQueryable<TEntity, TProperty>`  | `var user = context.Users.Include(u => u.UserRoles).ThenInclude(ur => ur.Role).FirstOrDefault(u => u.Id == userId);` |
+
+Espero que esto te ayude a entender mejor estas operaciones. Si tienes más preguntas, no dudes en preguntar. 😊
