@@ -148,6 +148,58 @@ En este ejemplo, los estudiantes (`Student`) pueden estar inscritos en varios cu
 ----
 ----
 
+# Anotaciones de indices
+
+1. **Índice simple**: Puedes especificar un índice en una columna de la siguiente manera¹:
+```csharp
+[Index(nameof(Url))]
+public class Blog 
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+}
+```
+En este ejemplo, se crea un índice en la columna `Url` de la tabla `Blog`.
+
+2. **Índice compuesto**: Un índice también puede abarcar más de una columna¹.
+```csharp
+[Index(nameof(FirstName), nameof(LastName))]
+public class Person 
+{
+    public int PersonId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+```
+En este ejemplo, se crea un índice compuesto en las columnas `FirstName` y `LastName` de la tabla `Person`.
+
+3. **Índice único**: Por defecto, los índices no son únicos: se permite que varias filas tengan el mismo valor para el conjunto de columnas del índice. Puedes hacer que un índice sea único de la siguiente manera¹:
+```csharp
+[Index(nameof(Url), IsUnique = true)]
+public class Blog 
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+}
+```
+En este ejemplo, se crea un índice único en la columna `Url` de la tabla `Blog`, lo que significa que no se pueden tener dos blogs con la misma URL.
+
+4. **Orden de clasificación del índice**: En la mayoría de las bases de datos, cada columna cubierta por un índice puede ser ascendente o descendente¹.
+```csharp
+[Index(nameof(Url), nameof(Rating), AllDescending = true)]
+public class Blog 
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+    public int Rating { get; set; }
+}
+```
+En este ejemplo, se crea un índice en las columnas `Url` y `Rating` de la tabla `Blog`, y ambas columnas tienen un orden descendente.
+
+
+
+-----
+-----
 # Anotaciones de validación
 
 1. **Required Attribute**: Especifica que el valor de la propiedad es obligatorio.
