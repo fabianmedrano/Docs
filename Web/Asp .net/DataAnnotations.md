@@ -1,3 +1,12 @@
+
+- **Anotaciones de validación**: Enumera y describe las anotaciones que se usan para validar los datos de entrada, como `[Required]`, `[Range]`, `[RegularExpression]`, etc. Da ejemplos de cómo aplicarlas y cómo personalizar los mensajes de error.
+- **Anotaciones de presentación**: Enumera y describe las anotaciones que se usan para modificar la forma en que se muestran los datos, como `[Display]`, `[DataType]`, `[DisplayFormat]`, etc. Da ejemplos de cómo usarlas y cómo afectan al HTML generado.
+- **Anotaciones personalizadas**: Explica cómo crear y usar anotaciones de datos propias, que no están incluidas en el framework. Da un ejemplo de una anotación personalizada que implemente la interfaz `IValidatableObject` o `ValidationAttribute`.
+- **Conclusión**: Resume los puntos principales del documento y proporciona enlaces a recursos adicionales sobre las anotaciones de datos.
+
+
+
+
 `DataAnnotations.Schema`:
 
 1. **Table Attribute**: Especifica a qué tabla de la base de datos se asigna una clase.
