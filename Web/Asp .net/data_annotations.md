@@ -1,3 +1,63 @@
+
+# Anotaciones de relación 
+
+1. **[ForeignKey]**: Esta anotación se utiliza para establecer una relación de clave externa con otra entidad¹².
+```csharp
+public class Order
+{
+    public int OrderId { get; set; }
+    public string Product { get; set; }
+
+    [ForeignKey("Customer")]
+    public int CustomerId { get; set; }
+    public Customer Customer { get; set; }
+}
+```
+En este ejemplo, la propiedad `CustomerId` en la entidad `Order` tiene una relación de clave externa con la entidad `Customer`.
+
+2. **[InverseProperty]**: Esta anotación se utiliza para denotar el extremo inverso de una relación cuando hay más de una relación entre dos entidades¹.
+```csharp
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+
+    [InverseProperty("WrittenPosts")]
+    public User Author { get; set; }
+
+    [InverseProperty("EditedPosts")]
+    public User Editor { get; set; }
+}
+```
+En este ejemplo, la entidad `Post` tiene dos relaciones con la entidad `User`: una para el autor del post y otra para el editor.
+
+3. **[Required]**: Aunque no es específicamente una anotación de relación, se utiliza a menudo en relaciones para indicar que una entidad no puede existir sin una entidad relacionada¹.
+```csharp
+public class Order
+{
+    public int OrderId { get; set; }
+
+    [Required]
+    public string Product { get; set; }
+}
+```
+En este ejemplo, cada `Order` debe tener un `Product`.
+
+4. **[Navigation Property]**: Las propiedades de navegación proporcionan una manera de navegar y administrar las relaciones en ambas direcciones².
+```csharp
+public class Blog 
+{
+    public int BlogId { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<Post> Posts { get; set; }
+}
+```
+En este ejemplo, la propiedad `Posts` en la entidad `Blog` es una propiedad de navegación que permite acceder a todos los posts asociados a un blog en particular.
+
+----
+----
+
 # Anotaciones de validación
 
 1. **Required Attribute**: Especifica que el valor de la propiedad es obligatorio.
