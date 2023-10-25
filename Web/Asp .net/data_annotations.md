@@ -225,6 +225,10 @@ public class UsuarioModelo
 }
 ```
 
+------
+------
+
+
 # Atributos de presentación 
 
 1. **DataTypeAttribute**: Especifica el nombre de un tipo adicional para asociar con un campo de datos.
@@ -396,5 +400,50 @@ public class UsuarioModelo
     public string NombreUsuario { get; set; }
 }
 ```
+
+------
+------
+
+
+# Anotaciones personalizada
+
+ Para crear una anotación de validación personalizada, debes crear una clase que herede de `ValidationAttribute` y sobrescribir el método `IsValid`.
+
+```csharp
+public class StringLengthRangeAttribute : ValidationAttribute
+{
+    public int Minimum { get; set; }
+    public int Maximum { get; set; }
+
+    public StringLengthRangeAttribute()
+    {
+        this.Minimum = 0;
+        this.Maximum = int.MaxValue;
+    }
+
+    public override bool IsValid(object value)
+    {
+        string strValue = value as string;
+        if (!string.IsNullOrEmpty(strValue))
+        {
+            int len = strValue.Length;
+            return len >= this.Minimum && len <= this.Maximum;
+        }
+        return true;
+    }
+}
+```
+
+En este ejemplo, `StringLengthRangeAttribute` es una anotación personalizada que valida que la longitud de una cadena esté dentro de un rango especificado. Puedes usarlo en tu modelo de la siguiente manera:
+
+```csharp
+public class MiModelo
+{
+    [StringLengthRange(Minimum = 5, Maximum = 100)]
+    public string MiPropiedad { get; set; }
+}
+```
+
+Este código garantiza que el valor de `MiPropiedad` tenga al menos 5 caracteres y no más de 100 caracteres⁴.
 
 
