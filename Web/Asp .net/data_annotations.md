@@ -1,7 +1,7 @@
 
 # Anotaciones de relación 
 
-1. **[ForeignKey]**: Esta anotación se utiliza para establecer una relación de clave externa con otra entidad¹².
+1. **ForeignKey**: Esta anotación se utiliza para establecer una relación de clave externa con otra entidad¹².
 ```csharp
 public class Order
 {
@@ -15,7 +15,7 @@ public class Order
 ```
 En este ejemplo, la propiedad `CustomerId` en la entidad `Order` tiene una relación de clave externa con la entidad `Customer`.
 
-2. **[InverseProperty]**: Esta anotación se utiliza para denotar el extremo inverso de una relación cuando hay más de una relación entre dos entidades¹.
+2. **InverseProperty**: Esta anotación se utiliza para denotar el extremo inverso de una relación cuando hay más de una relación entre dos entidades¹.
 ```csharp
 public class Post
 {
@@ -31,7 +31,7 @@ public class Post
 ```
 En este ejemplo, la entidad `Post` tiene dos relaciones con la entidad `User`: una para el autor del post y otra para el editor.
 
-3. **[Required]**: Aunque no es específicamente una anotación de relación, se utiliza a menudo en relaciones para indicar que una entidad no puede existir sin una entidad relacionada¹.
+3. **Required**: Aunque no es específicamente una anotación de relación, se utiliza a menudo en relaciones para indicar que una entidad no puede existir sin una entidad relacionada¹.
 ```csharp
 public class Order
 {
@@ -43,7 +43,7 @@ public class Order
 ```
 En este ejemplo, cada `Order` debe tener un `Product`.
 
-4. **[Navigation Property]**: Las propiedades de navegación proporcionan una manera de navegar y administrar las relaciones en ambas direcciones².
+4. **Navigation Property**: Las propiedades de navegación proporcionan una manera de navegar y administrar las relaciones en ambas direcciones².
 ```csharp
 public class Blog 
 {
@@ -54,6 +54,96 @@ public class Blog
 }
 ```
 En este ejemplo, la propiedad `Posts` en la entidad `Blog` es una propiedad de navegación que permite acceder a todos los posts asociados a un blog en particular.
+
+
+
+5. **Claves primarias y claves externas implícitas**: Entity Framework buscará una propiedad denominada “Id” o una combinación de nombre de clase e “Id”, como “BlogId”¹.
+```csharp
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Name { get; set; }
+}
+```
+En este ejemplo, `BlogId` actúa como la clave primaria para la entidad `Blog`.
+
+6. **Relaciones uno a uno**: En una relación uno a uno, la clave principal actúa además como una clave externa².
+```csharp
+public class User
+{
+    public int UserId { get; set; }
+    public string Name { get; set; }
+
+    public virtual UserProfile UserProfile { get; set; }
+}
+
+public class UserProfile
+{
+    [Key, ForeignKey("User")]
+    public int UserId { get; set; }
+
+    public string Bio { get; set; }
+
+    public virtual User User { get; set; }
+}
+```
+En este ejemplo, cada `User` tiene un `UserProfile`, y cada `UserProfile` pertenece a un `User`.
+
+7. **Relaciones uno a muchos**: En una relación uno a muchos, la clave externa se define en la tabla que representa los muchos extremos de la relación¹.
+```csharp
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+
+    [ForeignKey("Blog")]
+    public int BlogId { get; set; }
+    public virtual Blog Blog { get; set; }
+}
+```
+En este ejemplo, un `Blog` puede tener muchos `Post`, pero cada `Post` pertenece a un solo `Blog`.
+
+8. **Relaciones muchos a muchos**: La relación de muchos a muchos implica definir una tercera tabla (denominada unión o tabla de combinación), cuya clave principal se compone de las claves externas de ambas tablas relacionadas².
+```csharp
+public class Student
+{
+    public int StudentId { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<CourseStudent> CourseStudents { get; set; }
+}
+
+public class Course
+{
+    public int CourseId { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<CourseStudent> CourseStudents { get; set; }
+}
+
+public class CourseStudent
+{
+    [Key, Column(Order = 0)]
+    [ForeignKey("Student")]
+    public int StudentId { get; set; }
+
+    [Key, Column(Order = 1)]
+    [ForeignKey("Course")]
+    public int CourseId { get; set; }
+
+    public virtual Student Student { get; set;}
+    public virtual Course Course { get;set;}
+}
+```
+En este ejemplo, los estudiantes (`Student`) pueden estar inscritos en varios cursos (`Course`), y los cursos pueden tener varios estudiantes. Esto se maneja a través de la tabla de combinación `CourseStudent`.
 
 ----
 ----
