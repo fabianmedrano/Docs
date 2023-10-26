@@ -602,7 +602,12 @@ public class UsuarioModelo
     public string NombreUsuario { get; set; }
 }
 ```
+20. **Column**: Especifica los atributos de una columna asignada. Puede estipular un nombre, un tipo de datos o incluso el orden en el que aparece una columna en la tabla1. 
+```csharp
 
+[Column("BlogDescription", TypeName="ntext")]
+public String Description {get;set;}
+```
 ------
 ------
 
