@@ -1,4 +1,4 @@
-¡Por supuesto! Aquí tienes mi respuesta anterior formateada para un archivo de Markdown:
+
 
 ```markdown
 # Pasar datos del controlador a la vista en ASP.NET Core MVC
