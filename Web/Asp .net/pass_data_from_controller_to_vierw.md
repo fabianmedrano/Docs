@@ -49,7 +49,4 @@ var plan = await _context.Plan.FirstOrDefaultAsync(m => m.Id == id);
 return View((PlanHistory: planHistory, Plan: plan));
 ```
 
-Espero que esto te ayude a entender cómo puedes pasar múltiples datos a tus vistas en ASP.NET Core MVC. ¡Feliz codificación! 😊
-```
 
-Por favor, ten en cuenta que los bloques de código en Markdown deben estar indentados con cuatro espacios o encerrados entre tres acentos graves (```). He utilizado acentos graves en este ejemplo. ¡Espero que esto te sea útil! 😊
