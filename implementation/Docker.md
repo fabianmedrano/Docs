@@ -127,21 +127,14 @@ o
 ----
 
 # Docker Compose
-¡Por supuesto! **Docker Compose** es una herramienta que te permite definir y compartir aplicaciones multi-contenedor. Con Compose, puedes crear un archivo YAML para definir los servicios y, con un solo comando, puedes iniciar o detener todos los contenedores de tu aplicación. La gran ventaja de usar Compose es que puedes definir la pila de tu aplicación en un archivo, mantenerlo en la raíz de tu repositorio de proyecto (ahora está bajo control de versiones) y permitir que otros contribuyan fácilmente a tu proyecto.
+La ventaja de usar Compose es que puedes definir la pila de tu aplicación en un archivo, mantenerlo en la raíz de tu repositorio de proyecto (ahora está bajo control de versiones) y permitir que otros contribuyan fácilmente a tu proyecto.
 
-Aquí tienes una guía detallada para usar Docker Compose:
-
-1. **Crear el archivo Compose**:
+## Crear el archivo Compose**:
    - En el directorio de tu proyecto, crea un archivo llamado `docker-compose.yaml`.
    - Este archivo contendrá la definición de tus servicios (contenedores).
 
-2. **Definir el servicio de tu aplicación**:
-   - Supongamos que tienes una aplicación Node.js que se ejecuta en el puerto 3000.
-   - Abre el archivo `docker-compose.yaml` en un editor de texto o código.
-   - Define el servicio de tu aplicación de la siguiente manera:
-
      ```yaml
-     version: '3'
+     version: '3' # indica la versión de la sintaxis que se está utilizando 
      services:
        app:
          image: node:18-alpine #  Utiliza la imagen oficial de Node.js
@@ -150,7 +143,8 @@ Aquí tienes una guía detallada para usar Docker Compose:
            - 127.0.0.1:3000:3000 # Mapea el puerto 3000 del contenedor al puerto 3000 del host.
          working_dir: /app # Establece el directorio de trabajo dentro del contenedor.
          volumes: # Monta el directorio actual en el contenedor
-           - ./:/app
+           - ./:/app # .:/app: Esto significa que estás montando el directorio actual (donde se encuentra tu código fuente) en el contenedor en la ruta /app.
+     # Cualquier cambio que realices en tu máquina local se reflejará automáticamente dentro del contenedor.
          environment: # Define las variables de entorno necesarias para tu aplicación.
            MYSQL_HOST: mysql
            MYSQL_USER: root
@@ -158,10 +152,7 @@ Aquí tienes una guía detallada para usar Docker Compose:
            MYSQL_DB: todos
      ```
 
-  
-
-
-4. **Ejecutar la pila de la aplicación**:
+## Ejecutar la pila de la aplicación**:
    - Desde el directorio de tu proyecto, ejecuta:
 
      ```bash
@@ -170,7 +161,7 @@ Aquí tienes una guía detallada para usar Docker Compose:
 
    - Esto iniciará todos los servicios definidos en el archivo Compose.
 
-5. **Verificar y detener la aplicación**:
+## Verificar y detener la aplicación**:
    - Abre tu navegador y ve a `http://localhost:3000` para ver tu aplicación.
    - Cuando hayas terminado, ejecuta:
 
@@ -227,7 +218,7 @@ Aquí tienes una guía detallada para usar Docker Compose:
 
  
 ```yaml
-    version: '3'
+    version: '3' # indica la versión de la sintaxis que se está utilizando 
     services:
       # Servicio web para Laravel y Nginx
       web:
