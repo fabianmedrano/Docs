@@ -90,7 +90,7 @@ o
      cd ~
      docker start nombre_contenero
   ```
-## Detener contenerdor
+## Detener contenedor
  ```bash
      cd ~
      docker stop 
@@ -103,6 +103,21 @@ o
 ```bash
      cd ~
      docker start nombre_contenero
+  ```
+## Ver Logs contenedor
+ ```bash
+     cd ~
+     docker logs --follow
+  ```
+
+ ```bash
+     cd ~
+     docker logs --follow name_contenedor
+  ```
+o
+ ```bash
+     cd ~
+     docker logs --follow id_contenedor
   ```
 ----
 ----
