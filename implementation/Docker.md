@@ -125,6 +125,70 @@ o
 ----
 ----
 ----
+
+# Docker Compose
+¡Por supuesto! **Docker Compose** es una herramienta que te permite definir y compartir aplicaciones multi-contenedor. Con Compose, puedes crear un archivo YAML para definir los servicios y, con un solo comando, puedes iniciar o detener todos los contenedores de tu aplicación. La gran ventaja de usar Compose es que puedes definir la pila de tu aplicación en un archivo, mantenerlo en la raíz de tu repositorio de proyecto (ahora está bajo control de versiones) y permitir que otros contribuyan fácilmente a tu proyecto.
+
+Aquí tienes una guía detallada para usar Docker Compose:
+
+1. **Crear el archivo Compose**:
+   - En el directorio de tu proyecto, crea un archivo llamado `docker-compose.yaml`.
+   - Este archivo contendrá la definición de tus servicios (contenedores).
+
+2. **Definir el servicio de tu aplicación**:
+   - Supongamos que tienes una aplicación Node.js que se ejecuta en el puerto 3000.
+   - Abre el archivo `docker-compose.yaml` en un editor de texto o código.
+   - Define el servicio de tu aplicación de la siguiente manera:
+
+     ```yaml
+     version: '3'
+     services:
+       app:
+         image: node:18-alpine #  Utiliza la imagen oficial de Node.js
+         command: sh -c "yarn install && yarn run dev" # Ejecuta los comandos necesarios para iniciar tu aplicación
+         ports:
+           - 127.0.0.1:3000:3000 # Mapea el puerto 3000 del contenedor al puerto 3000 del host.
+         working_dir: /app # Establece el directorio de trabajo dentro del contenedor.
+         volumes: # Monta el directorio actual en el contenedor
+           - ./:/app
+         environment: # Define las variables de entorno necesarias para tu aplicación.
+           MYSQL_HOST: mysql
+           MYSQL_USER: root
+           MYSQL_PASSWORD: secret
+           MYSQL_DB: todos
+     ```
+
+  
+
+
+4. **Ejecutar la pila de la aplicación**:
+   - Desde el directorio de tu proyecto, ejecuta:
+
+     ```bash
+     docker-compose up
+     ```
+
+   - Esto iniciará todos los servicios definidos en el archivo Compose.
+
+5. **Verificar y detener la aplicación**:
+   - Abre tu navegador y ve a `http://localhost:3000` para ver tu aplicación.
+   - Cuando hayas terminado, ejecuta:
+
+     ```bash
+     docker-compose down
+     ```
+
+   - Esto detendrá y eliminará los contenedores.
+
+
+----
+----
+----
+----
+----
+----
+
+
 **Docker Compose** para trabajar con **Laravel**, **MySQL**, **volúmenes** y **recarga en caliente (hot reload)**:
 
 1. **Descargar Laravel y sus dependencias**:
@@ -188,3 +252,86 @@ o
     volumes:
       db-data:  # Define el volumen llamado "db-data"
 ```
+
+----
+----
+----
+----
+----
+----
+
+¡Buena pregunta! En **Docker Compose**, puedes organizar tus servicios de diferentes maneras. Aquí tienes algunas opciones:
+
+1. **Definir todos los servicios en un solo archivo**:
+   - Puedes listar todos tus servicios directamente en el archivo `docker-compose.yaml`.
+   - Esto es simple y funciona bien para proyectos pequeños o medianos.
+   - Sin embargo, si tienes muchos servicios, el archivo puede volverse largo y difícil de mantener.
+
+2. **Dividir tus servicios en varios archivos**:
+   - Puedes crear múltiples archivos de Compose y luego combinarlos según tus necesidades.
+   - Por ejemplo, puedes tener un archivo base con servicios comunes y luego archivos adicionales para entornos específicos o servicios únicos.
+   - Aquí tienes un ejemplo:
+
+     ```yaml
+     # docker-compose.yaml (archivo base)
+     version: '3'
+     services:
+       common-service:
+         image: myapp:latest
+         # Configuración común aquí
+
+     # docker-compose.dev.yaml (archivo específico para desarrollo)
+     version: '3'
+     services:
+       dev-service:
+         extends:
+           file: docker-compose.yaml
+           service: common-service
+         # Configuración adicional para desarrollo
+
+     # docker-compose.prod.yaml (archivo específico para producción)
+     version: '3'
+     services:
+       prod-service:
+         extends:
+           file: docker-compose.yaml
+           service: common-service
+         # Configuración adicional para producción
+     ```
+
+   - Luego, puedes ejecutar Compose con:
+
+     ```bash
+     docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
+     ```
+
+     o
+
+     ```bash
+     docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up
+     ```
+
+3. **Herencia de servicios**:
+   - Puedes usar la palabra clave `extends` para heredar servicios de otro archivo.
+   - Por ejemplo:
+
+     ```yaml
+     # docker-compose.yaml
+     version: '3'
+     services:
+       service-one:
+         image: myapp:latest
+
+     # docker-compose.prod.yaml
+     version: '3'
+     services:
+       service-two:
+         extends:
+           file: docker-compose.yaml
+           service: service-one
+         environment:
+           BACKEND: some_other_value
+     ```
+
+   - Aquí, `service-two` hereda de `service-one` y agrega configuración adicional.
+
