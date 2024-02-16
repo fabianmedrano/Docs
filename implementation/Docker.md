@@ -222,7 +222,7 @@ La ventaja de usar Compose es que puedes definir la pila de tu aplicación en un
     services:
       # Servicio web para Laravel y Nginx
       web:
-        build: .
+        build: . #  esto indica que no usa una imagen como referencia sino que hay que construir una para este servicio y el punto referencia el directorio actual
         ports:
           - "80:80"  # Mapea el puerto 80 del host al puerto 80 del contenedor
         volumes:
