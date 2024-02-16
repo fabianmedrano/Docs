@@ -1,11 +1,6 @@
 
-# Docker Images
-## Listado de imagenes
 
- ```bash
-     cd ~
-     docker images # muestra las imagenes que tenemos descargadas de docker
-  ```
+# Docker Images
 
 ## Descarga de imagenes
   **Buscar en Docker Hub**
@@ -24,8 +19,97 @@
      cd ~
      docker pull name_image:version # descarga la version de la imagen indicada
   ```
+## Listado de imagenes
 
+ ```bash
+     cd ~
+     docker images # muestra las imagenes que tenemos descargadas de docker
+  ```
 
+## Eliminar de imagenes
+  **Buscar en Docker Hub**
+   - ver imagenes
+   - ver versiones
+   - ver banderas de configuración
+ ```bash
+     cd ~
+     docker image rm 
+  ```
+```bash
+     cd ~
+     docker image rm  name_image 
+  ```
+```bash
+     cd ~
+     docker image rm  name_image:version # elimina la version de la imagen indicada
+  ```
+----
+----
+----
+----
+----
+----
+
+# Docker Contenedores
+## Descarga de imagenes
+ importante revisar al banderas de configuracion particulares para cada contenedor en **docker hub**
+ ```bash
+     cd ~
+     docker create 
+  ```
+```bash
+     cd ~
+     docker create --name nombre_con_el_que_vamos_a_nombrar_el_contenedor name_imagen # crear contenedor con nombre especifico
+  ```
+```bash
+     cd ~
+     docker create  -p27017:27017 --name nombre_contenedor name_imagen
+# -p27017:27017 bandera para indicar los puertos,
+#    el primero es para los puertos de la computadora fisica
+#    el segundo son los puertos del contenerdor
+
+## revisar cuales puertos se utilizan normalmente
+  ```
+
+## Listar contenerdores
+ ```bash
+     cd ~
+     docker ps -a # mustra todos los contedores
+  ```
+## Iniciar contenerdor
+ ```bash
+     cd ~
+     docker start 
+  ```
+ ```bash
+     cd ~
+     docker start id_contenedor
+  ```
+o
+```bash
+     cd ~
+     docker start nombre_contenero
+  ```
+## Detener contenerdor
+ ```bash
+     cd ~
+     docker stop 
+  ```
+ ```bash
+     cd ~
+     docker stop id_contenedor
+  ```
+o
+```bash
+     cd ~
+     docker start nombre_contenero
+  ```
+----
+----
+----
+----
+----
+----
 **Docker Compose** para trabajar con **Laravel**, **MySQL**, **volúmenes** y **recarga en caliente (hot reload)**:
 
 1. **Descargar Laravel y sus dependencias**:
