@@ -1,4 +1,32 @@
-¡Por supuesto! Aquí tienes una guía detallada sobre cómo utilizar **Docker Compose** para trabajar con **Laravel**, **MySQL**, **volúmenes** y **recarga en caliente (hot reload)**:
+
+# Docker Images
+## Listado de imagenes
+
+ ```bash
+     cd ~
+     docker images # muestra las imagenes que tenemos descargadas de docker
+  ```
+
+## Descarga de imagenes
+  **Buscar en Docker Hub**
+   - ver imagenes
+   - ver versiones
+   - ver banderas de configuración
+ ```bash
+     cd ~
+     docker pull 
+  ```
+```bash
+     cd ~
+     docker pull name_image # descarga la ultima version de la imagen
+  ```
+```bash
+     cd ~
+     docker pull name_image:version # descarga la version de la imagen indicada
+  ```
+
+
+**Docker Compose** para trabajar con **Laravel**, **MySQL**, **volúmenes** y **recarga en caliente (hot reload)**:
 
 1. **Descargar Laravel y sus dependencias**:
    - Comencemos descargando la última versión de Laravel e instalando las dependencias necesarias para el proyecto, incluido **Composer**, el administrador de paquetes a nivel de aplicación para PHP. Utilizaremos Docker para evitar la instalación global de Composer.
