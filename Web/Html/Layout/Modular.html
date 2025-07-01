@@ -1,0 +1,28 @@
+<main class="modules">
+  <section class="mod" style=" background-color:gray">Módulo A</section>
+  <section class="mod" style=" background-color:blue">Módulo B</section>
+  <section class="mod"  style=" background-color:red">Módulo C</section>
+</main>
+<style>
+.modules {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+   background-color:green;
+}
+@media (min-width: 640px) {
+  .modules {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .modules {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+.mod {
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+</style>
