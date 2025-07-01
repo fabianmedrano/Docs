@@ -23,8 +23,8 @@
 * **Descripción**: bloques autónomos dispuestos en fila/columna; flexibles y reorganizables.
 * **Ejemplos**: e‑commerce, revistas, tutoriales .
 * **Beneficios**: muy responsive, fácil de reordenar y consistentes en distintas pantallas.
-fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Grid_cards.html)
 ---
 
 ## 🌓 4. Split-screen (pantallas divididas)
