@@ -50,8 +50,8 @@
 * **Descripción**: imagen o vídeo de fondo ocupa todo el viewport, texto minimalista y CTA prominente.
 * **Uso ideal**: páginas de producto, startups, portadas.
 * **Recomendaciones**: SVGs para logotipos, comprimir imágenes y lazy loading optimizado ([browserstack.com][6]).
-fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+ → :
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Full-screen_inmersivo.html)
 ---
 
 ## 🪑 7. Modular o cartas móviles
