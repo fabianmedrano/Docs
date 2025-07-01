@@ -1,0 +1,22 @@
+<div class="split">
+  <div class="left">Texto y CTA</div>
+  <div class="right">Imagen / multimedia</div>
+</div>
+<style>
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+.left, .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+@media (max-width: 600px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
