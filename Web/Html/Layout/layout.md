@@ -60,7 +60,7 @@
 * **Ventajas**: permite reorganización sencilla de contenidos, adaptación a distintos contenidos.
 * **Uso**: home pages de media, portales informativos ([clay.global][7]).
 fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Modular.html)
 ---
 
 ## 🧩 8. Adaptive vs Responsive
