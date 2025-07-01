@@ -5,7 +5,7 @@
 * **Ventajas**: legibilidad, énfasis en contenido principal, fácil de adaptar.
 * **Técnica**: CSS Grid o Flexbox con unidades %/em/rem, media queries en anchos clave (mínimo móvil → tablet → escritorio)
 * 
-fluid_to_a_column.html → :
+ → :
 (https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
 ---
 
@@ -14,8 +14,8 @@ fluid_to_a_column.html → :
 * **Descripción**: cabecera full‑width, tres columnas (sidebar + contenido + sidebar), pie.
 * **Uso típico**: dashboard, portal, ecommerce con filtro/especificaciones laterales.
 * **Implementación**: grid-template-areas con CSS Grid o Flexbox .
-fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Holy%20Grail%20(3%20columns).html)
+ → :
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Holy_Grail_3_columns.html)
 ---
 
 ## 🃏 3. Tarjetas en cuadrícula (Card/Grid)
