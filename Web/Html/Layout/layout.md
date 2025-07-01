@@ -41,8 +41,8 @@
 * **Descripción**: bloques de distinto tamaño, dispuestos de forma irregular/manualmente en Grid.
 * **Cuando usarlo**: portfolios o sitios creativos que quieran romper la monotonía ([es.wikipedia.org][4], [seahawkmedia.com][5]).
 * **Ventaja**: alto impacto visual y diferenciación de marca.
-fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+→ :
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/masonry-asimetric.html)
 ---
 
 ## 🌐 6. Full-screen o hero inmersivo
