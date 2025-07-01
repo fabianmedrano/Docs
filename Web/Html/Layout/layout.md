@@ -15,7 +15,7 @@ fluid_to_a_column.html → :
 * **Uso típico**: dashboard, portal, ecommerce con filtro/especificaciones laterales.
 * **Implementación**: grid-template-areas con CSS Grid o Flexbox .
 fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Holy%20Grail%20(3%20columns).html)
 ---
 
 ## 🃏 3. Tarjetas en cuadrícula (Card/Grid)
