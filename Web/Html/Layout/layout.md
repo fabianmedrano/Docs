@@ -32,8 +32,8 @@
 * **Descripción**: pantalla partida en dos bloques verticales (imagen vs texto/CTA) o horizontal.
 * **Ideal para**: landing con mensaje fuerte o CTAs destacados.
 * **Flexibilidad**: se transforma a una sola columna en móviles, ofrece equilibrio visual.
-fluid_to_a_column.html → :
-(https://fabianmedrano.github.io/Docs/Web/Html/Layout/fluid_to_a_column.html)
+→ :
+(https://fabianmedrano.github.io/Docs/Web/Html/Layout/Split‑screen.html)
 ---
 
 ## 🔳 5. Masonry y diseño asimétrico
