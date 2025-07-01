@@ -1,0 +1,25 @@
+<div class="masonry">
+  <div class="item tall">Alto</div>
+  <div class="item">Normal</div>
+  <div class="item wide">Ancho</div>
+  <!-- más items -->
+</div>
+<style>
+.masonry {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+  gap: 10px;
+
+background-color: coral;
+}
+  .item{
+    background-color: blue;
+  }
+  .tall{
+    background-color: red;
+  }
+  .wide{background-color: gray;}
+.item.tall { grid-row: span 2; }
+.item.wide { grid-column: span 2; }
+</style>
